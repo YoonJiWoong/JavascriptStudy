@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var user = {
+        name: "kim",
+        age: 20,
+      };
+
+      console.log(user.name); // 일반적으론 이렇게 쓰이는데
+      // .? 는 뭘까?
+      console.log(user?.age); // 왼쪽(user)이 비어있으면 오른쪽(age) 안해줌
+      console.log(user?.gender); // undefined 찍히는거 알 수 있음
+      // optional chaining 연산자?
+      // ?. 왼쪽이 null, undefined 면 점 안찍어주고 undefined 남겨줌
+
+      // 활용
+      // 언제씀? 중첨된 object 자료에서 자료 뽑을때 reference 에러없이 안전하게 뽑을 수 있음
+      console.log("------------------------------");
+
+      var user = {
+        name: "kim",
+        age: { value: 20 },
+      };
+      console.log(user.age?.value); // undefined
+      console.log(user.age.value); // 에러
+      // null.value (에러)
+      // undefined.value (에러)
+      // ?. 는 에러를 해결하는게 아니라 감추는거야!
+
+      document.querySelector("#a")?.innerHTML;
+
+      console.log("------------------------------");
+
+      console.log(undefined ?? "로딩중?");
+      // ?? 는 왼쪽이 null, undefined 이면 "로딩중?" 보여주라는거
+    </script>
+  </body>
+</html>
