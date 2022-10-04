@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 호이스팅 : 스코프 내부 어디서든 변수 선언은 최상위에 선언된 것 처럼 행동
+      // Temporal Dead Zone
+
+      // var, let, const
+      // var 은 선언은 최상위에 할당은 X
+      // var 재선언 됨, let은 안됨.
+      console.log(name); // var은 선언하기 전에 사용 할 수 있다.
+      var name = "Lee";
+      // console.log(name2);
+      let name2 = "park";
+      var name3 = "kim";
+      // let name3 = "kim" ;
+
+      // 호이스팅 예시
+      let age = 30;
+      function showAge() {
+        console.log(age);
+        //  let age = 20; 이거 쓰면 에러 나옴
+        // let은 호이스팅 되지 않는게 아니야
+        // 호이스팅은 스코프 내부에서만... 여기선 스코프는 함수 안에만
+        // 만약 호이스팅이 안된다면 30이 정상적으로 찍혔어야
+      }
+      showAge();
+
+      // 변수의 생성과정
+      /*  
+    1. 선언단계
+    2. 초기화 단계  : undefined를 할당해주는 단계
+    3. 할당 단계
+    */
+
+      // var 선언과 초기화가 동시에... 그래서 undefined 가 나와
+      // let 선언과 초기화가 분리되....
+      // const 선언과 초기화와 할당을 동시에..
+
+      // var : 함수 스코프
+      // let, const : 블록 스코프 (함수, if문, for문, while문, try/catch문 등...) 외부에선 접근x 지역변수
+
+      const age2 = 40;
+      if (age > 19) {
+        var txt = "성인";
+      }
+      console.log(txt);
+      // var은 이런게 가능... (스코프)
+
+      // 하지만 var 도 함수 스코프는 벗어 날 수 없다.
+      function add(num1, num2) {
+        var result = num1 + num2;
+      }
+      add(2, 3);
+      console.log(result); // 이런건 var 안되... 함수는 안되!!
+    </script>
+  </body>
+</html>

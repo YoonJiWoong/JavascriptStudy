@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="add">
+      <input type="file" id="file" name="file_path" class="files" />
+      <button type="button" class="btn">추가</button>
+    </div>
+    <script>
+      var maxAppend = 1;
+
+      document
+        .getElementsByClassName("btn")[0]
+        .addEventListener("click", function () {
+          if (maxAppend >= 10) {
+            alert("파일 업로드 최대 개수는 3개 입니다.");
+            return;
+          } else {
+            document
+              .getElementsByClassName("add")[0]
+              .insertAdjacentHTML(
+                "beforeend",
+                '<input type="file"name="file_path" class="files"> <button type="button" class="_add" onclick="addDel(this);">삭제</button>'
+              );
+
+            maxAppend++;
+          }
+          console.log(maxAppend);
+        });
+
+      document.getElementById("file").onchange = function () {
+        document
+          .getElementsByClassName("add")[0]
+          .insertAdjacentHTML(
+            "beforeend",
+            '<input type="file"name="file_path" id="file" class="files"> <button type="button" class="_add" onclick="addDel(this);">삭제</button>'
+          );
+      };
+    </script>
+  </body>
+</html>
