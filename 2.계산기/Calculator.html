@@ -88,33 +88,7 @@
       }; // 고차함수 (high order funtion) : 함수가 함수를 리턴
 
       const onClickOperator = (op) => () => {
-        if (numTwo) {
-          switch (operatior) {
-            case "+":
-              $result.value = parseInt(numOne) + parseInt(numTwo);
-              break;
-            case "-":
-              $result.value = numOne - numTwo;
-              break;
-            case "*":
-              $result.value = numOne * numTwo;
-              break;
-            case "/":
-              $result.value = numOne / numTwo;
-              break;
-            default:
-              break;
-          }
-          numOne = $result.value;
-          numTwo = "";
-        }
-
-        if (numOne) {
-          operatior = op;
-          $operatior.value = op;
-        } else {
-          alert("숫자를 먼저 입력하세요");
-        }
+        console.log("충돌이 나야해!");
       };
 
       document
